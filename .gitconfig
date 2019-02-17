@@ -1,0 +1,20 @@
+[user]
+	name = Ian Streeter
+	email = ian.streeter@arm.com
+[core]
+	preloadindex = true
+
+[alias]
+	graph = log --oneline --graph --all --max-count 30
+[credential]
+	helper = osxkeychain
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = true
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
+	prompt = false
+[diff]
+	tool = vimdiff
