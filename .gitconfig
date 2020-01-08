@@ -1,20 +1,26 @@
 [user]
 	name = Ian Streeter
-	email = ian.streeter@arm.com
+	email = ian@edelweissconnect.com
 [core]
 	preloadindex = true
 
 [alias]
 	graph = log --oneline --graph --all --max-count 30
-[credential]
-	helper = osxkeychain
+	graphall = log --oneline --graph --all
+        ff = merge --ff-only
 [merge]
 	tool = vimdiff
 [mergetool]
-	prompt = true
+	prompt = false
 [mergetool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+        #cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+        cmd = nvim -d $LOCAL $MERGED $REMOTE
+        trustexitcode = false
 [difftool]
 	prompt = false
+[difftool "vimdiff"]
+        cmd = nvim -d $LOCAL $REMOTE
 [diff]
 	tool = vimdiff
+[credential]
+	helper = store
